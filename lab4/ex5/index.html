@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        body {
+            width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+    </style>
+</head>
+<body>
+<img id="logo" src="../../lab2/page%20a/images/1_normal/logo.png" alt="logo">
+<script>
+    $(document).ready(function () {
+        let rotation = 0;
+        setInterval(function () {
+            rotation += 15;
+            $('#logo').css('transform', 'rotate(' + rotation + 'deg)');
+        }, 2000);
+    });
+</script>
+</body>
+</html>

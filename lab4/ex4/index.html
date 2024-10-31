@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<textarea id="textarea" placeholder="Enter a paragraph here..."></textarea>
+<input type="text" id="textfield" placeholder="Enter the word to search...">
+<button id="countButton">Count Occurrences</button>
+<p class="result" id="result"></p>
+
+<script>
+    const textarea = document.getElementById('textarea');
+    const textfield = document.getElementById('textfield');
+    const countButton = document.getElementById('countButton');
+    const result = document.getElementById('result');
+
+    countButton.addEventListener('click', () => {
+        const textA = textarea.value;
+        const textB = textfield.value;
+
+        if (!textA || !textB) {
+            result.textContent = 'Please enter both a paragraph and a word to search.';
+            return;
+        }
+
+        const words = textA.split(/\s+/);
+        let count = 0;
+
+        for (let word of words) {
+            if (word.toLowerCase() === textB.toLowerCase()) {
+                count++;
+            }
+        }
+
+        result.textContent = `The word "${textB}" appears ${count} times in the paragraph.`;
+    });
+</script>
+
+</body>
+</html>

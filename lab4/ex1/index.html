@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button style="color:red">red</button>
+<button style="color:blue">blue</button>
+<button style="color:orange">orange</button>
+<button style="color:yellow">yellow</button>
+<button style="color:purple">purple</button>
+<button style="color:green">green</button>
+<button style="color:black">black</button>
+</body>
+<script>
+    document.querySelectorAll('button').forEach(button => {
+        button.addEventListener('click', () => {
+            document.body.style.background = button.style.color;
+        });
+    });
+</script>
+</html>

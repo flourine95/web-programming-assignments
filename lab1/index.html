@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            height: 100%;
+            font-family: Arial, sans-serif;
+            font-size: 30px;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            border: 1px solid grey;
+        }
+
+        header, nav, footer {
+            text-align: center;
+            padding: 10px;
+        }
+
+        header, nav {
+            border-bottom: 1px solid grey;
+        }
+
+
+        header {
+            border-top: 1px solid grey;
+        }
+
+        nav, footer {
+            background-color: #f0f0f0;
+        }
+
+        .content {
+            display: flex;
+            flex: 1;
+            border-bottom: 1px solid grey;
+        }
+
+        .content .left, .content .right {
+            text-align: center;
+            padding: 10px;
+        }
+
+        .content .left {
+            width: 30%;
+            border-right: 1px solid grey;
+        }
+
+        .content .right {
+            width: 70%;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <header>Header Section</header>
+    <nav>Navigation Bar</nav>
+    <section class="content">
+        <div class="left">Index</div>
+        <div class="right">Content section</div>
+    </section>
+    <footer>Footer Section</footer>
+</div>
+</body>
+</html>

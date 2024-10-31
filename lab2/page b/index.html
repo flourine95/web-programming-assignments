@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page</title>
+    <link rel="stylesheet" href="../../lib/fontawesome-free-6.6.0-web/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        header {
+            background: #f3f3f3;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            height: 120px;
+
+        }
+
+        header .container {
+            display: flex;
+            max-width: 1200px;
+            margin: 0 auto;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+        }
+
+        .buy-tickets {
+            background: #ff6b33;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        nav {
+            height: 100px;
+            background: white;
+        }
+
+        nav .container {
+            display: flex;
+            max-width: 1200px;
+            margin: 0 auto;
+            height: 100%;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+
+        nav .nav-links a:first-child {
+            margin-left: -20px;
+        }
+
+        nav .nav-links a {
+            padding: 10px 20px;
+            color: #7f7f7f;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            margin-right: 15px;
+            font-weight: 600;
+        }
+
+        nav .nav-links a:hover {
+            color: #000;
+        }
+
+        nav .socials a {
+            color: #7f7f7f;
+            margin-left: 15px;
+        }
+
+        nav .socials a i {
+            font-size: 20px;
+        }
+
+
+        .slideshow {
+            background: #eeeeee;
+        }
+
+        .slideshow .slideshow-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 100px 0;
+        }
+
+
+        .features {
+            background: white;
+            height: 600px;
+        }
+
+        .features .container {
+            justify-content: space-around;
+            display: flex;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            display: flex;
+            width: 300px;
+            margin-top: 100px;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .feature-card .feature-title {
+            margin-bottom: 40px;
+        }
+
+        .feature-card .feature-text {
+            margin-bottom: 30px;
+        }
+
+        .feature-image {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+
+        .feature-title {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .feature-text {
+            color: #a9a9a9;
+            margin-bottom: 20px;
+            width: 200px;
+
+        }
+
+        .join-now {
+            background: #ff6b33;
+            color: white;
+            padding: 10px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+
+        .pricing {
+            height: 600px;
+            background: #f3f3f3;
+        }
+
+        .pricing .container {
+            display: flex;
+            max-width: 1200px;
+            margin: 0 auto;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+            padding-top: 15px;
+        }
+
+        .price-title {
+            font-size: 20px;
+        }
+
+        .price-card {
+            width: 300px;
+            padding: 0 30px;
+            text-align: center;
+            border: 4px solid #ddd;
+            border-radius: 10px;
+            background: white;
+            flex: 1;
+        }
+
+        .price {
+            font-size: 50px;
+            font-weight: bolder;
+            color: #00bcd4;
+            margin: 50px 0 30px;
+        }
+
+        .price.premium {
+            color: #ff6b33;
+        }
+
+        .buy-tickets-now.premium {
+            background: #ff6b33;
+        }
+
+        .price-feature {
+            color: #666;
+            margin: 50px 0;
+        }
+
+        .buy-tickets-now {
+            background: #2dc0e8;
+            color: white;
+            padding: 20px 45px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 50px;
+            font-size: 20px;
+            font-weight: 500;
+        }
+
+        .ticket {
+            background: #191919;
+            height: 600px;
+        }
+
+        .ticket .container {
+            display: flex;
+            max-width: 1200px;
+            margin: 0 auto;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .form-ticket {
+            background: #151515;
+            border-radius: 10px;
+            text-align: center;
+            border: solid 1px #2a2a2a;
+            color: white;
+            padding: 60px 20px 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .form-ticket .card-title {
+            font-weight: 500;
+            font-size: 30px;
+        }
+
+        .form-ticket .card-text {
+            font-weight: 500;
+            font-size: 18px;
+            color: #cccccc;
+            width: 400px;
+        }
+
+        .form-ticket input {
+            width: 400px;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: solid 1px #7e7e7e;
+        }
+
+        .form-ticket button {
+            background: #007bff;
+            color: white;
+            padding: 20px 45px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: 500;
+            border: none;
+        }
+
+        footer {
+            background: #151515;
+            color: #cccccc;
+        }
+
+        footer .container {
+            display: flex;
+            max-width: 1200px;
+            margin: 0 auto;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        footer .container .left a {
+            color: #1c8ff5;
+            font-weight: 700;
+        }
+
+        footer .container .right {
+            display: flex;
+            align-items: center;
+        }
+
+        footer .container .right a {
+            color: #bbbbbb;
+            margin-left: 15px;
+
+        }
+
+        .slideshow-container {
+            max-width: 1000px;
+            position: relative;
+            margin: auto;
+        }
+
+        .mySlides {
+            display: none;
+        }
+
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            margin-top: -22px;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .text {
+            color: #f2f2f2;
+            font-size: 15px;
+            padding: 8px 12px;
+            position: absolute;
+            bottom: 8px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .numbertext {
+            color: #f2f2f2;
+            font-size: 12px;
+            padding: 8px 12px;
+            position: absolute;
+            top: 0;
+        }
+
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        .dot:hover {
+            background-color: #717171;
+        }
+
+        .fade {
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+
+        @keyframes fade {
+            from {
+                opacity: .4
+            }
+            to {
+                opacity: 1
+            }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="container">
+        <img src="images/main/logo.png" alt="logo">
+        <a href="#" class="buy-tickets">Buy Tickets</a>
+    </div>
+</header>
+<nav>
+    <div class="container">
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">Work</a>
+            <a href="#">Blog</a>
+            <a href="#">Contact</a>
+        </div>
+        <div class="socials">
+            <a href="https://facebook.com" target="_blank">
+                <i class="fa-brands fa-facebook-f"></i>
+            </a>
+
+            <a href="https://twitter.com" target="_blank">
+                <i class="fa-brands fa-twitter"></i>
+            </a>
+
+            <a href="https://instagram.com" target="_blank">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+        </div>
+    </div>
+</nav>
+
+<section class="slideshow">
+    <div class="slideshow-container">
+        <div class="mySlides fade">
+            <div class="numbertext">1 / 3</div>
+            <img src="/lab2/page%20b/images/main/image-1.jpg" style="width:100%" alt="" width="1200" height="500">
+            <div class="text">Caption Text</div>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">2 / 3</div>
+            <img src="/lab2/page%20b/images/main/image-2.jpg" style="width:100%" alt="" width="1200" height="500">
+            <div class="text">Caption Two</div>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">3 / 3</div>
+            <img src="/lab2/page%20b/images/main/image-3.jpg" style="width:100%" alt="" width="1200" height="500">
+            <div class="text">Caption Three</div>
+        </div>
+
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        <div style="text-align:center; margin-top: 20px;">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+    </div>
+</section>
+
+<section class="features">
+    <div class="container">
+        <div class="feature-card">
+            <img src="/lab2/page%20b/images/13_gym/1.jpg" alt="Welcome to Gym" class="feature-image">
+            <h2 class="feature-title">Welcome to Gym</h2>
+            <p class="feature-text">Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
+            <a href="#" class="join-now">Join Now</a>
+        </div>
+        <div class="feature-card">
+            <img src="/lab2/page%20b/images/13_gym/2.jpg" alt="Fitness Activities" class="feature-image">
+            <h2 class="feature-title">Fitness Activities</h2>
+            <p class="feature-text">Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
+            <a href="#" class="join-now">Join Now</a>
+        </div>
+        <div class="feature-card">
+            <img src="/lab2/page%20b/images/13_gym/3.jpg" alt="High quality Staff" class="feature-image">
+            <h2 class="feature-title">High quality Staff</h2>
+            <p class="feature-text">Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
+            <a href="#" class="join-now">Join Now</a>
+        </div>
+    </div>
+</section>
+
+<section class="pricing">
+    <div class="container">
+        <div class="price-card">
+            <div class="price">$9.99</div>
+            <span class="price-title">Normal Event Ticket</span>
+            <p class="price-feature">First Feature Here</p>
+            <p class="price-feature">Second Feature Here</p>
+            <p class="price-feature">Third Feature Here</p>
+            <a href="#" class="buy-tickets-now">Buy Tickets Now</a>
+        </div>
+        <div class="price-card">
+            <div class="price premium">$14.99</div>
+            <span class="price-title">Normal Event Ticket</span>
+            <p class="price-feature">First Feature Here</p>
+            <p class="price-feature">Second Feature Here</p>
+            <p class="price-feature">Third Feature Here</p>
+            <a href="#" class="buy-tickets-now premium">Buy Tickets Now</a>
+        </div>
+        <div class="price-card">
+            <div class="price">$24.99</div>
+            <span class="price-title">Normal Event Ticket</span>
+            <p class="price-feature">First Feature Here</p>
+            <p class="price-feature">Second Feature Here</p>
+            <p class="price-feature">Third Feature Here</p>
+            <a href="#" class="buy-tickets-now">Buy Tickets Now</a>
+        </div>
+    </div>
+</section>
+<section class="ticket">
+    <div class="container">
+        <form class="form-ticket">
+            <div class="card-title">GET YOUR TICKET NOW!</div>
+            <i class="fa-solid fa-minus" style="color: #007bff;font-size: 50px; padding: 15px 0;"></i>
+            <p class="card-text">Just Subscribe to get full access to our new tutorial + all attachments files.</p>
+            <label>
+                <input type="text" placeholder="Enter Your Full Name">
+            </label>
+            <label>
+                <input type="email" placeholder="Enter Your Email">
+            </label>
+            <button type="submit">SUBSCRIBE TO DOWNLOAD</button>
+        </form>
+    </div>
+</section>
+<footer>
+    <div class="container">
+        <div class="left">
+            <span>
+                All rights reserved Copyright &copy; 2015 FLATPACK by
+                <a href="#">PixFort</a>
+            </span>
+        </div>
+        <div class="right">
+            <span>Your likes & share makes us happy!</span>
+            <div class="social">
+                <a href="https://facebook.com" target="_blank">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+                <a href="https://twitter.com" target="_blank">
+                    <i class="fa-brands fa-twitter"></i>
+                </a>
+                <a href="https://instagram.com" target="_blank">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        let dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {
+            slideIndex = 1
+        }
+        if (n < 1) {
+            slideIndex = slides.length
+        }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+    }
+</script>
+</body>
+</html>

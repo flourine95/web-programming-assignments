@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <link rel="stylesheet" href="../../lib/fontawesome-free-6.6.0-web/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #ee9eb8;
+            --primary-color-light: #f7d1dd;
+            --text-color: #cccccc;
+            --background-color: white;
+            --shadow-color: rgba(0, 0, 0, 0.15);
+            --primary-color-dark: #e57a9e;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-size: 13px;
+            font-family: Arial, sans-serif;
+            background: url("/lab3/sign_in/bg.jpg") no-repeat center center fixed;
+            background-size: cover;
+            height: 100%;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .login-form {
+            width: 300px;
+            background: var(--background-color);
+            border-radius: 5px;
+            box-shadow: 10px 10px 20px 1px rgba(0, 0, 0, 0.3);
+            padding: 35px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .login-title {
+            text-align: center;
+            margin: 50px 0 30px;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            width: 100%;
+        }
+
+        .input-field {
+            display: block;
+            width: 100%;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 0 10px 1px var(--shadow-color);
+            color: var(--primary-color);
+            font-weight: 600;
+            box-sizing: border-box;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .input-field::placeholder {
+            color: var(--primary-color);
+        }
+
+        .input-field:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px var(--primary-color-light), 0 0 10px 1px var(--shadow-color);
+        }
+
+        .btn {
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .btn-signin {
+            background: var(--primary-color);
+            color: var(--background-color);
+            padding: 10px 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px 1px var(--shadow-color);
+            transition: all 0.3s ease;
+        }
+
+        .btn-signin:hover {
+            background: var(--primary-color-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-signin:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .login-options {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .login-options-title {
+            color: var(--text-color);
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .btn-social {
+            border-radius: 50%;
+            padding: 10px;
+            box-shadow: 0 0 5px 2px var(--shadow-color);
+            background: var(--background-color);
+            color: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .btn-social:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-social:active {
+            transform: translateY(0) scale(1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .signup-link {
+            display: block;
+            margin-top: 50px;
+            color: var(--text-color);
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        .signup-link:hover {
+            color: var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <form action="#" class="login-form" method="post">
+        <h1 class="login-title">Sign In</h1>
+        <div class="form-group">
+            <label for="username"></label>
+            <input type="text" id="username" name="username" placeholder="Username or Email" class="input-field">
+        </div>
+        <div class="form-group">
+            <label for="password"></label>
+            <input type="password" id="password" name="password" placeholder="Password" class="input-field">
+        </div>
+        <button class="btn btn-signin" type="submit">SIGN IN</button>
+        <div class="login-options">
+            <p class="login-options-title">Or login with</p>
+            <div class="btn-group">
+                <button type="button" class="btn btn-social">
+                    <i class="fa-brands fa-facebook fa-2x"></i>
+                </button>
+                <button type="button" class="btn btn-social">
+                    <i class="fa-brands fa-google fa-2x"></i>
+                </button>
+            </div>
+        </div>
+        <a href="#" class="signup-link">Sign Up</a>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FLATPACK</title>
+    <link rel="stylesheet" href="../../lib/fontawesome-free-6.6.0-web/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Open Sans, sans-serif;
+            height: 100vh;
+        }
+
+        a {
+            text-decoration: none;
+            color: #dddddd;
+        }
+
+        .header {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #ffffff;
+            height: 5%;
+        }
+
+        .header .social {
+            display: flex;
+            align-items: center;
+        }
+
+        .header .social span {
+            color: #cccccc;
+            margin-right: 20px;
+            font-weight: 500;
+        }
+
+        .main-section {
+            display: flex;
+            background-color: #333333;
+            height: 45%;
+            border-top: #cccccc 4px solid;
+        }
+
+        .main-section .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .main-section .container .left, .main-section .container .right {
+            width: 50%;
+        }
+
+        .main-section .container img {
+            width: 90%;
+        }
+
+        .main-section .container .right {
+            height: 87%;
+        }
+
+        .main-section .container .right h2 {
+            font-size: 30px;
+            color: #2dc0e8;
+        }
+
+        .main-section .container .right h1 {
+            font-size: 60px;
+            color: white;
+            line-height: 1;
+            margin-top: 15px;
+        }
+
+        .main-section .container .right p {
+            margin-top: 20px;
+            color: #969696;
+        }
+
+        .main-section .container .right button {
+            margin-top: 30px;
+            padding: 25px 30px;
+            border-radius: 5px;
+            background-color: #2dc0e8;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            border-bottom: solid 5px #249aba;
+        }
+
+        .testimonials {
+            text-align: center;
+            background-color: #eeeeee;
+            height: 25%;
+            padding-top: 50px;
+            border-bottom: #cccccc 4px solid;
+        }
+
+        .testimonials h2 {
+            font-size: 30px;
+            color: #696969;
+
+        }
+
+        .testimonials p {
+            font-size: 16px;
+            color: #adadad;
+        }
+
+        .testimonials .feedbacks {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            gap: 30px;
+            padding-top: 50px;
+        }
+
+        .testimonials .feedbacks .feedback {
+            width: 45%;
+            background-color: white;
+            display: flex;
+            border-radius: 5px;
+            border-bottom: solid 4px #cccccc;
+        }
+
+        .testimonials .feedbacks .feedback .left {
+            display: flex;
+            background: #f5f5f5;
+            width: 30%;
+            padding: 20px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .testimonials .feedbacks .feedback .left img {
+            border-radius: 50%;
+            width: 100%;
+            height: auto;
+        }
+
+        .testimonials .feedbacks .feedback .right {
+            padding: 20px;
+            text-align: left;
+        }
+
+        .testimonials .feedbacks .feedback .right .description {
+            margin-bottom: 10px;
+        }
+
+        .testimonials .feedbacks .feedback .right .review {
+            display: flex;
+            align-items: center;
+            justify-content: left;
+        }
+
+        .testimonials .feedbacks .feedback .right .review img {
+            margin-right: 10px;
+        }
+
+        .testimonials .feedbacks .feedback .right .review a {
+            color: #65aafc;
+        }
+
+        .footer {
+            text-align: center;
+            background-color: #ffffff;
+        }
+
+        .footer .cta {
+            max-width: 1200px;
+            margin: 50px auto 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+        }
+
+        .footer .cta h2 {
+            font-size: 30px;
+            font-weight: 400;
+            color: #4d8c5a;
+        }
+
+        .footer .cta p {
+            margin-top: 30px;
+            color: #afafaf;
+            width: 600px;
+            text-align: center;
+        }
+
+        .footer .cta button {
+            margin-top: 30px;
+            background: white;
+            padding: 25px 45px;
+            border: #4d8c5a 3px solid;
+            color: #4d8c5a;
+            font-size: 20px;
+            border-radius: 5px;
+            font-weight: 600;
+            margin-bottom: 50px;
+        }
+
+        .footer .cta span {
+            color: #afafaf;
+        }
+
+        .footer span:first-of-type {
+            color: #afafaf;
+            display: block;
+            font-weight: 500;
+        }
+
+        .footer span:last-of-type {
+            color: #afafaf;
+            display: block;
+            font-weight: 500;
+            margin-bottom: 30px;
+        }
+
+        .footer span:last-of-type a {
+            color: #4d8c5a;
+            font-weight: 500;
+        }
+
+        .footer .icons {
+            margin-top: 30px;
+            padding-bottom: 30px;
+        }
+
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <img src="images/1_normal/logo.png" alt="logo">
+    <div class="social">
+        <span>Stay connected</span>
+        <div class="icons">
+            <a href="#" class="fa-stack fa-1x">
+                <i class="fa-solid fa-circle fa-stack-2x"></i>
+                <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+            </a>
+            <a href="#" class="fa-stack fa-1x">
+                <i class="fa-solid fa-circle fa-stack-2x"></i>
+                <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+            </a>
+            <a href="#" class="fa-stack fa-1x">
+                <i class="fa-solid fa-circle fa-stack-2x"></i>
+                <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+            </a>
+        </div>
+    </div>
+</header>
+
+<main class="main-section">
+    <div class="container">
+        <div class="left">
+            <img src="images/main/software-img-4.png" alt="">
+        </div>
+        <div class="right">
+            <h2>GET FREE SUPPORT</h2>
+            <h1>Get The Most Amazing Builder!</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, distinctio dolorum esse exercitationem,
+                explicabo id impedit iusto maxime, minus nihil nisi officia optio perspiciatis repudiandae sunt tenetur
+                totam voluptate voluptatem.</p>
+            <button>
+                <i class="fa-regular fa-eye"></i>
+                <span>LIVE DEMO</span>
+            </button>
+        </div>
+    </div>
+</main>
+
+<section class="testimonials">
+    <h2>What our awesome clients say</h2>
+    <p>Great words from great people</p>
+    <div class="feedbacks">
+        <div class="feedback">
+            <div class="left">
+                <img src="/lab2/page%20a/images/testimonials/envato-logo.png" alt="envato-logo">
+            </div>
+            <div class="right">
+                <p class="description">I'm a web designer, you guys are very inspiring I wish to see more work from
+                    maybe more freebies.</p>
+                <div class="review">
+                    <img src="/lab2/page%20a/images/1_normal/stars.original.png" alt="star">
+                    <a href="#">via Envato.com</a>
+                </div>
+            </div>
+        </div>
+        <div class="feedback">
+            <div class="left">
+                <img src="/lab2/page%20a/images/testimonials/unboune-logo.png" alt="envato-logo">
+            </div>
+            <div class="right">
+                <p class="description">Great service with fast and relible support The design work and detail put into
+                    themes are great.</p>
+                <div class="review">
+                    <img src="/lab2/page%20a/images/1_normal/stars.original.png" alt="star">
+                    <a href="#">via pixfort.com</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <!--    call to action-->
+    <section class="cta">
+        <h2>What Are You Waiting</h2>
+        <p>we are the leading company in web tutorials with over 500 handpicked
+            videos your dreams real with awseome projects.</p>
+        <button>GET A FREE QUOTE</button>
+    </section>
+    <span>All rights reserved © 2015</span>
+    <span>FLATPACK by <a href="#">Pixfort</a></span>
+    <div class="icons">
+        <a href="#" class="fa-stack fa-1x">
+            <i class="fa-solid fa-circle fa-stack-2x"></i>
+            <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+        </a>
+        <a href="#" class="fa-stack fa-1x">
+            <i class="fa-solid fa-circle fa-stack-2x"></i>
+            <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+        </a>
+        <a href="#" class="fa-stack fa-1x">
+            <i class="fa-solid fa-circle fa-stack-2x"></i>
+            <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+        </a>
+    </div>
+</footer>
+</body>
+</html>

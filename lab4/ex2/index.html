@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<label>
+    <input id="a" type="text" name="a" size="2">x^2 +
+</label><label>
+    <input id="b" type="text" name="b" size="2">x +
+</label><label>
+    <input id="c" type="text" name="c" size="2">
+</label>
+<button id="calculate">Calculate</button>
+<p id="result"></p>
+</body>
+<script>
+    const a = document.getElementById('a');
+    const b = document.getElementById('b');
+    const c = document.getElementById('c');
+    const calculate = document.getElementById('calculate');
+    const result = document.getElementById('result');
+
+    calculate.addEventListener('click', () => {
+        const aValue = parseFloat(a.value);
+        const bValue = parseFloat(b.value);
+        const cValue = parseFloat(c.value);
+
+        if (isNaN(aValue) || isNaN(bValue) || isNaN(cValue)) {
+            result.innerHTML = 'Please enter valid numbers.';
+            return;
+        }
+
+        if (aValue === 0) {
+            if (bValue === 0) {
+                if (cValue === 0) {
+                    result.innerHTML = 'The equation has infinite solutions.';
+                } else {
+                    result.innerHTML = 'No solution.';
+                }
+            } else {
+                result.innerHTML = 'x = ' + (-cValue / bValue);
+            }
+        } else {
+            const delta = bValue * bValue - 4 * aValue * cValue;
+
+            if (delta < 0) {
+                result.innerHTML = 'No solution.';
+            } else if (delta === 0) {
+                result.innerHTML = 'x = ' + (-bValue / (2 * aValue));
+            } else {
+                const x1 = (-bValue + Math.sqrt(delta)) / (2 * aValue);
+                const x2 = (-bValue - Math.sqrt(delta)) / (2 * aValue);
+                result.innerHTML = 'x1 = ' + x1 + ', x2 = ' + x2;
+            }
+        }
+    });
+</script>
+</html>

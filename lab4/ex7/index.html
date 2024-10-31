@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        #button-container {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .button {
+            padding: 20px;
+            font-size: 24px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+
+        .button.hidden {
+            visibility: hidden; /* Ẩn nút mà không xóa */
+        }
+
+        #message {
+            margin-top: 20px;
+            font-size: 18px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Click the Buttons in Order!</h1>
+    <div id="button-container"></div>
+    <div id="message"></div>
+</div>
+<script>
+    $(document).ready(function () {
+        const buttonContainer = $('#button-container');
+        const messageDiv = $('#message');
+        let currentNumber = 1;
+
+        for (let i = 1; i <= 64; i++) {
+            const button = $('<button></button>')
+                .text(i)
+                .addClass('button')
+                .on('click', function () {
+                    handleButtonClick($(this), i);
+                });
+            buttonContainer.append(button);
+        }
+
+        function handleButtonClick(button, number) {
+            if (number === currentNumber) {
+                button.addClass('hidden');
+                currentNumber++;
+                messageDiv.text('');
+            } else {
+                messageDiv.text('Sai! Vui lòng nhấn đúng số. Số cần nhấn tiếp theo là ' + currentNumber);
+            }
+        }
+    });
+
+</script>
+</body>
+</html>

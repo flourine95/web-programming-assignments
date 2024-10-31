@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-size: 13px;
+            font-family: sans-serif;
+            background-color: #e6e6e6;
+        }
+
+
+        .wrapper {
+            margin: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-us {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .required {
+            color: red;
+        }
+
+        .contact-us > .title {
+            margin-bottom: 20px;
+            font-size: 24px;
+            text-align: center;
+            color: #333;
+            font-weight: 1000;
+        }
+
+        .form-group .title {
+            font-size: 11px;
+            font-weight: 800;
+        }
+
+        .form-group {
+            border: solid 2px #e6e6e6;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            background: #f7f7f7;
+        }
+
+        .form-group label {
+            display: block;
+            margin-top: 10px;
+            margin-bottom: 5px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            font-size: 16px;
+            border: none;
+            outline: none;
+            box-sizing: border-box;
+            padding: 5px 0 15px 0;
+            background: #f7f7f7;
+            font-family: Open Sans,serif;
+        }
+
+        .form-group option{
+            padding: 0;
+        }
+
+        .form-group textarea {
+            height: 100px;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #66afe9;
+            outline: none;
+        }
+
+        .form-group textarea {
+            resize: none;
+        }
+
+        .submit-button {
+            display: inline-block;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .submit-button:hover {
+            background-color: #0056b3;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+        }
+
+        .form-group {
+            padding-left: 15px;
+        }
+        .error-message {
+            color: red;
+            margin-top: 10px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <div class="container">
+        <div class="contact-us">
+            <h2 class="title">Contact Us</h2>
+            <form id="form-contact-us" action="#" method="post">
+                <div class="form-group">
+                    <label for="fullname">
+                        <span class="title">FULL NAME</span>
+                        <span class="required">*</span>
+                    </label>
+                    <input type="text" id="fullname" name="fullname" placeholder="Enter Your Name">
+                </div>
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label for="email">
+                            <span class="title">EMAIL</span>
+                            <span class="required">*</span>
+                        </label>
+                        <input type="email" id="email" name="email" placeholder="Enter Your Email">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">
+                            <span class="title">PHONE</span>
+                        </label>
+                        <input type="text" id="phone" name="phone" placeholder="Enter Number Phone">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="servies">
+                        <span class="title">SERVICES</span>
+                        <span class="required">*</span>
+                    </label>
+                    <select id="servies" name="servies">
+                        <option value="please chooses">Please chooses</option>
+                        <option value="service1">Service 1</option>
+                        <option value="service2">Service 2</option>
+                        <option value="service3">Service 3</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">
+                        <span class="title">MESSAGE</span>
+                    </label>
+                    <textarea id="message" name="message" placeholder="Your message here..."></textarea>
+                </div>
+
+                <input type="submit" value="Submit" class="submit-button">
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function() {
+        $('#form-contact-us').on('submit', function(event) {
+            event.preventDefault();
+            $('.error-message').remove();
+
+            let valid = true;
+
+            const fullname = $('#fullname').val().trim();
+            const email = $('#email').val().trim();
+            const servies = $('#servies').val();
+
+            if (!fullname) {
+                valid = false;
+                showError('fullname', 'Full Name is required.');
+            }
+
+            if (!email) {
+                valid = false;
+                showError('email', 'Email is required.');
+            } else if (!validateEmail(email)) {
+                valid = false;
+                showError('email', 'Please enter a valid email address.');
+            }
+
+            if (servies === 'please chooses') {
+                valid = false;
+                showError('servies', 'Please choose a service.');
+            }
+
+            if (valid) {
+                this.submit();
+            }
+        });
+
+        function showError(fieldId, message) {
+            const formGroup = $('#' + fieldId).closest('.form-group');
+            const errorMessage = $('<div class="error-message"></div>').text(message);
+            formGroup.append(errorMessage);
+        }
+
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+    });
+</script>
+</body>
+</html>
